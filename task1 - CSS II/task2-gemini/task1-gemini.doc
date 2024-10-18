@@ -1,0 +1,46 @@
+CSS Preprocessors
+A CSS preprocessor is a programming language that extends the capabilities of CSS by adding features like variables, mixins, nesting, and more. Preprocessed CSS files are then compiled into standard CSS that can be used in web browsers.
+
+Popular CSS Preprocessors
+Sass (Syntactically Awesome Stylesheets): One of the most widely used preprocessors, offering features like variables, nesting, mixins, and functions.
+Less (Leaner CSS): Similar to Sass, Less provides variables, mixins, and nesting, but with a slightly different syntax.
+Stylus: Known for its concise syntax, Stylus offers features like variables, mixins, functions, and expressions.
+Advantages of Using a CSS Preprocessor
+Improved Maintainability: CSS preprocessors make code more organized and easier to read and maintain, especially for large projects.
+Enhanced Reusability: Features like variables and mixins allow you to define reusable styles and apply them consistently across your project.
+Time-Saving: Preprocessors can help you write CSS code faster by automating tasks and reducing repetitive code.
+Advanced Features: Preprocessors offer additional features like functions, operators, and control flow statements, providing greater flexibility in your styling.
+Code Example (Sass)
+SCSS
+$primary-color: blue;
+$secondary-color: red;
+
+.button {
+    background-color: $primary-color;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.button.secondary {
+    background-color: $secondary-color;
+}
+
+This Sass code defines variables for primary and secondary colors, and then uses them to create a reusable .button style. The .button.secondary class extends the .button style and overrides the background color to the secondary color.
+
+Compiled CSS
+CSS
+.button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.button.secondary {
+    background-color: red;
+}
+
+As you can see, the preprocessor has expanded the Sass code into standard CSS, making it ready to be used in web browsers

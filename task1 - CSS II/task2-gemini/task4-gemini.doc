@@ -1,0 +1,58 @@
+Using Variables and Functions in Sass
+Variables
+Variables in Sass allow you to store and reuse values throughout your stylesheet, promoting consistency and maintainability.
+
+Example:
+
+SCSS
+$primary-color: blue;
+$secondary-color: red;
+
+.button {
+  background-color: $primary-color;
+  color: white;
+}
+
+.secondary-button {
+  background-color: $secondary-color;
+}
+
+In this example, $primary-color and $secondary-color are variables defined at the beginning of the stylesheet. They are then used in the .button and .secondary-button classes to set the background color.
+
+Functions
+Sass functions allow you to define custom calculations or operations that can be reused in your stylesheet.
+
+Example:
+
+SCSS
+@function lighten($color, $amount: 10%) {
+  @return mix($color, white, $amount);
+}
+
+.light-button {
+  background-color: lighten($primary-color, 20%);
+}
+
+In this example, the lighten function takes a color and an amount as arguments and returns a lighter version of the color. It's used in the .light-button class to create a lighter shade of the primary color.
+
+Inheritance in Sass
+Sass supports inheritance through nesting. When a selector is nested within another, it inherits the properties of the parent selector.
+
+Example:
+
+SCSS
+.button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-button {
+  @extend .button;
+  background-color: $primary-color;
+  color: white;
+}
+
+In this example, the .primary-button class extends the .button class, inheriting its properties. It then adds its own specific properties for background color and text color.
+
+By using variables, functions, and inheritance, you can write more efficient, maintainable, and reusable Sass code.

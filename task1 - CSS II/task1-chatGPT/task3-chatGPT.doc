@@ -1,0 +1,131 @@
+What is Sass?
+Sass (Syntactically Awesome Stylesheets) is a CSS preprocessor that extends CSS with features like variables, nesting, mixins, functions, and imports, which help organize and write more maintainable stylesheets. After writing in Sass, the code is compiled into regular CSS that browsers can understand.
+
+How does Sass differ from regular CSS?
+Variables: Reuse values (e.g., colors, fonts) easily across the stylesheet.
+Nesting: Write CSS selectors inside other selectors to mirror HTML structure.
+Partials and Imports: Break the CSS into multiple files for better organization and import them as needed.
+Mixins: Create reusable blocks of CSS.
+Functions and Operators: Perform calculations directly within your styles.
+Sass File Demonstrating Nesting, Partials, and Imports
+Project Structure:
+
+scss
+Copy code
+/styles
+│── _variables.scss    (Partial file)
+│── _header.scss       (Partial file)
+│── main.scss          (Main Sass file)
+1. _variables.scss (Partial File)
+scss
+Copy code
+// _variables.scss
+$primary-color: #3498db;
+$font-stack: 'Roboto', sans-serif;
+2. _header.scss (Partial File)
+scss
+Copy code
+// _header.scss
+header {
+  background-color: $primary-color;
+  font-family: $font-stack;
+  padding: 20px;
+
+  nav {
+    ul {
+      list-style: none;
+
+      li {
+        display: inline-block;
+        margin-right: 15px;
+
+        a {
+          text-decoration: none;
+          color: white;
+
+          &:hover {
+            color: darken(white, 20%);
+          }
+        }
+      }
+    }
+  }
+}
+3. main.scss (Main Sass File)
+scss
+Copy code
+// main.scss
+@import 'variables';
+@import 'header';
+
+body {
+  margin: 0;
+  font-family: $font-stack;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h1 {
+      color: $primary-color;
+      text-align: center;
+    }
+  }
+}
+Resulting CSS After Compilation
+When the Sass files are compiled into CSS, the nesting and imports are flattened:
+
+css
+Copy code
+/* Compiled CSS */
+
+header {
+  background-color: #3498db;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+header nav ul li a:hover {
+  color: #cccccc; /* Darkened white */
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body .container h1 {
+  color: #3498db;
+  text-align: center;
+}
+Notable Differences from Standard CSS
+Nesting:
+
+In Sass, nested selectors mirror the HTML structure, making it easier to manage complex layouts.
+In the compiled CSS, nesting is flattened to individual selectors.
+Imports and Partials:
+
+In Sass, we use @import to include partials (files starting with _), but in CSS, importing files directly would create multiple HTTP requests. Sass compiles everything into a single CSS file.
+Variables:
+
+The use of variables ($primary-color, $font-stack) helps avoid repeating values. CSS does support variables now with -- custom properties, but Sass predates this feature and offers more functionality (e.g., functions like darken()).
+Sass makes stylesheets more modular, maintainable, and readable, especially for larger projects.

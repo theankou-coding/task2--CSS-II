@@ -1,0 +1,37 @@
+CSS Compilation: From Preprocessor to Standard CSS
+CSS compilation is the process of converting preprocessed CSS code (written in languages like Sass or Less) into standard CSS that can be understood and rendered by web browsers. This compilation step is typically handled by a build tool or task runner.
+
+How CSS Compilation Works
+Preprocessor Parsing: The preprocessor reads the preprocessed CSS file and parses its syntax.
+Variable Expansion: The preprocessor replaces variables with their defined values.
+Mixin and Function Evaluation: Mixins and functions are evaluated and expanded.
+Nesting Resolution: Nested rules are flattened into standard CSS syntax.
+Output Generation: The preprocessor generates the compiled CSS code, which is then ready to be used in your web project.
+Compiling Sass to CSS
+To compile Sass to CSS, you can use a build tool like Webpack, Gulp, or Grunt. These tools often have built-in support for Sass compilation or can be configured to use external Sass compilers.
+
+Example:
+
+Sass Code (example.scss):
+
+SCSS
+$primary-color: blue;
+
+.button {
+    background-color: $primary-color;
+    color: white;
+    padding: 10px 20px;
+}
+
+Compiled CSS:
+
+CSS
+.button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+}
+
+In this example, the Sass code defines a variable for the primary color and uses it in the .button style. The Sass compiler replaces the variable with its value and outputs the compiled CSS.
+
+Note: The specific compilation process and output may vary depending on the tools and configurations used.

@@ -1,0 +1,70 @@
+Sass: A CSS Preprocessor
+Sass (Syntactically Awesome Stylesheets) is a CSS preprocessor that extends the capabilities of standard CSS by adding features like variables, nesting, mixins, and more. Sass files are compiled into standard CSS that can be used in web browsers.
+
+Differences from Regular CSS
+Nesting: Sass allows you to nest selectors within each other, making your code more organized and readable.
+Variables: You can define variables in Sass to store and reuse values throughout your stylesheet.
+Mixins: Mixins are reusable blocks of code that can be included in other styles.
+Partials: Sass partials are files that start with an underscore (_) and can be imported into other Sass files.
+Functions: Sass supports custom functions that can perform calculations or manipulate values.
+Example Sass File
+SCSS
+// Variables
+$primary-color: blue;
+$secondary-color: red;
+
+// Mixin
+@mixin button-style {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+// Nesting
+.container {
+  background-color: $primary-color;
+  h1 {
+    color: white;
+  }
+  p {
+    color: $secondary-color;
+  }
+}
+
+// Partial (example.scss)
+@import 'example'; // Assuming 'example.scss' is in the same directory
+
+// Using the mixin
+.my-button {
+  @include button-style();
+  background-color: $primary-color;
+}
+
+Compiled CSS
+CSS
+.container {
+  background-color: blue;
+}
+
+.container h1 {
+  color: white;
+}
+
+.container p {
+  color: red;
+}
+
+.my-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: blue;
+}
+
+Notable Differences:
+
+Nesting: The nested selectors in the Sass code are flattened into standard CSS.
+Variables: The Sass variables are replaced with their values during compilation.
+Mixins: The button-style mixin is expanded into the corresponding CSS properties.
+Partials: The example.scss partial is imported and its contents are included in the main Sass file.
+As you can see, Sass can significantly simplify CSS code by providing features that are not available in standard CSS. This can make your stylesheets more organized, reusable, and maintainable.
